@@ -52,15 +52,22 @@ The widget_service accesses the user_service through the kubernetes DNS entry
 
 ## Usage Start a minikube cluster:
 
-``` minikube start ```
+```
+minikube start
+```
 
 build the docker files in the minikube environment:
 
-``` eval $(minikube docker-env) make build ```
+```
+eval $(minikube docker-env)
+make build
+```
 
 Start the services:
 
-``` make run ```
+```
+make run
+```
 
 print the urls using `make print-services` and navigate to the widget service.
 Observe there are only three users.
@@ -68,7 +75,9 @@ Observe there are only three users.
 Now add a user by modifying `user_service/main.go`.  Build swap out the user
 service using Telepresence:
 
-``` make swap-user ```
+```
+make swap-user
+```
 
 Refresh the browser.  The widget service queries the user service running on
 your local machine.
