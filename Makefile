@@ -8,6 +8,9 @@ build-user:
 build-widget:
 	docker build ./widget_service -t ${REGISTRY}/widget-service
 
+run:
+	kubectl create -f user-service.yaml -f widget-service.yaml
+
 swap-user:
 	go build -o user-service user_service/main.go
 	telepresence \
@@ -25,5 +28,17 @@ swap-widget:
 	--run ./widget-service \
 	--port=8444 \
 	--method vpn-tcp
+
+restart-pods:
+	kubectl delete pods --all
+
+print-services:
+	minikube service --url user-service
+	minikube service --url widget-service
+
+clean:
+	rm -f user-service
+	rm -f widget-service
+	rm -f telepresence.log
 
 .PHONY: build build-user build-widget
