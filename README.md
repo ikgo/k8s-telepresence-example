@@ -6,15 +6,48 @@ common development tasks.
 
 The user_service returns a list of users:
 
-``` [ { "name": "Matt" }, { "name": "Steve" }, { "name": "Greg" } ] ```
+```
+[
+    {
+        "name": "Matt"
+    },
+    {
+        "name": "Steve"
+    },
+    {
+        "name": "Greg"
+    }
+]
+```
 
 The widget_service accesses the user_service through the kubernetes DNS entry
 `http://user-service.default/` returns a list of users and wigets:
 
-``` { "users": [ { "name": "Matt" }, { "name": "Steve" }, { "name": "Greg" } ],
-"widgets": [ { "name": "Thingamajig" }, { "name": "Thingamabob" }, { "name":
-"Plumbus" } ] }
-
+```
+{
+    "users": [
+        {
+            "name": "Matt"
+        },
+        {
+            "name": "Steve"
+        },
+        {
+            "name": "Greg"
+        }
+    ],
+    "widgets": [
+        {
+            "name": "Thingamajig"
+        },
+        {
+            "name": "Thingamabob"
+        },
+        {
+            "name": "Plumbus"
+        }
+    ]
+}
 ```
 
 ## Usage Start a minikube cluster:
