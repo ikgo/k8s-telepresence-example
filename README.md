@@ -6,7 +6,7 @@ common development tasks.
 
 The user_service returns a list of users:
 
-```
+```json
 [
     {
         "name": "Matt"
@@ -23,7 +23,7 @@ The user_service returns a list of users:
 The widget_service accesses the user_service through the kubernetes DNS entry
 `http://user-service.default/` returns a list of users and wigets:
 
-```
+```json
 {
     "users": [
         {
@@ -52,20 +52,20 @@ The widget_service accesses the user_service through the kubernetes DNS entry
 
 ## Usage Start a minikube cluster:
 
-```
+```bash
 minikube start
 ```
 
 build the docker files in the minikube environment:
 
-```
+```bash
 eval $(minikube docker-env)
 make build
 ```
 
 Start the services:
 
-```
+```bash
 make run
 ```
 
@@ -75,7 +75,7 @@ Observe there are only three users.
 Now add a user by modifying `user_service/main.go`.  Build swap out the user
 service using Telepresence:
 
-```
+```bash
 make swap-user
 ```
 
